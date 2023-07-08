@@ -4,8 +4,13 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.BatteryManager
+import com.google.android.gms.wearable.DataMap
+import com.google.android.gms.wearable.PutDataMapRequest
+import com.google.android.gms.wearable.Wearable
+import fr.alexis.getphonebatterystatus.BatteryStatus.batteryCharging
+import fr.alexis.getphonebatterystatus.BatteryStatus.batteryLevel
 
-class BatteryReceiver : BroadcastReceiver() {
+class BatteryReceiver(private val batteryUpdateInterface: BatteryUpdateInterface) : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent?.action == Intent.ACTION_BATTERY_CHANGED) {
             BatteryStatus.batteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
@@ -23,6 +28,7 @@ class BatteryReceiver : BroadcastReceiver() {
                     BatteryStatus.batteryCharging=BatteryManager.BATTERY_PLUGGED_WIRELESS
                 }
             }
+            batteryUpdateInterface.batteryDataChanged()
         }
     }
 }
