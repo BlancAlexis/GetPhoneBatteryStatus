@@ -1,4 +1,6 @@
 package fr.alexis.getphonebatterystatus
 
-class DataLayerListener {
+import com.google.android.gms.wearable.WearableListenerService
+
+class DataLayerListener : WearableListenerService() {
 }
