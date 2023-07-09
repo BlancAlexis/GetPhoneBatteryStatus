@@ -9,16 +9,6 @@ import android.os.Bundle
 import com.google.android.gms.wearable.MessageClient
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-        val messageClient : MessageClient
-        messageClient.addListener {  }
-        messageClient.se
-
-        setContentView(R.layout.activity_main)
-    }
 
 }
 
