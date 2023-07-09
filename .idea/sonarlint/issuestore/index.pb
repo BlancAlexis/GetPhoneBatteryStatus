@@ -1,3 +1,5 @@
 
-S
-#mobile/src/main/AndroidManifest.xml,6\8\68c55220cdf442f45f1e1e1838e6f5ecdacb04a5
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+C
+mobile/build.gradle,f\8\f80b181ebd0eededcba5aee16760aab5dafd4ede

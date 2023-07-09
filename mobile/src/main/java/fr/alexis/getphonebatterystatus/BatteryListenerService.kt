@@ -32,7 +32,7 @@ class BatteryListenerService : WearableListenerService(), BatteryUpdateInterface
         val dataItem = PutDataMapRequest.create("/battery_data").apply {
             dataMap.putAll(this.dataMap)
         }.asPutDataRequest()
-
+        dataItem.setUrgent()
         val dataClient = Wearable.getDataClient(applicationContext)
         val putDataTask = dataClient.putDataItem(dataItem)
         putDataTask.addOnSuccessListener {

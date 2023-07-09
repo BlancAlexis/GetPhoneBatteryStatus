@@ -31,19 +31,17 @@ class MainActivity : ComponentActivity(), OnBatteryDataReceive {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            WearApp("Damien la con dta mère")
+            WearApp("Android")
         }
     }
     override fun onBatteryDataReceive(level: Int, state: Int) {
-        Log.i("Montre","Levell $level State $state")
+        Log.i("Montre","Level $level State $state")
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         val intent = Intent(this, PhoneBatteryStateListener::class.java)
-        // intent.putExtra("Interface",this)
         startService(intent)
-
     }
 }
 
@@ -92,5 +90,5 @@ fun batteryState(greetingName: Int) {
 @Preview(device = Devices.WEAR_OS_SMALL_ROUND, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    WearApp("toudou le loup")
+    WearApp("Android")
 }

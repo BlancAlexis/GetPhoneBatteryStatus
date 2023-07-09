@@ -5,8 +5,7 @@ import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.WearableListenerService
 
-class PhoneBatteryStateListener
-    : WearableListenerService() {
+class PhoneBatteryStateListener : WearableListenerService() {
     override fun onDataChanged(dataEvents: DataEventBuffer) {
         println("onDataChanged")
         for (event in dataEvents) {
