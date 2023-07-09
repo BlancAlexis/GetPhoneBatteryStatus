@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "fr.alexis.getphonebatterystatus"
-        minSdkPreview "UpsideDownCake"
+        minSdkPreview "31"
         targetSdkPreview "UpsideDownCake"
         versionCode 1
         versionName "1.0"

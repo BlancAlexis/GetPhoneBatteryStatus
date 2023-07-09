@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
@@ -25,11 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
-import fr.alexis.getphonebatterystatus.R
 import fr.alexis.getphonebatterystatus.presentation.theme.GetPhoneBatteryStatusTheme
-import fr.alexis.getphonebatterystatus.presentation.theme.OnBatteryDataReceive
 
-class MainActivity : ComponentActivity(),OnBatteryDataReceive {
+class MainActivity : ComponentActivity(), OnBatteryDataReceive {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
