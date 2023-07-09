@@ -6,6 +6,7 @@
 
 package fr.alexis.getphonebatterystatus.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -36,7 +37,17 @@ class MainActivity : ComponentActivity(), OnBatteryDataReceive {
     override fun onBatteryDataReceive(level: Int, state: Int) {
         Log.i("Montre","Levell $level State $state")
     }
+
+    override fun onStart() {
+        super.onStart()
+        val intent = Intent(this, PhoneBatteryStateListener::class.java)
+        // intent.putExtra("Interface",this)
+        startService(intent)
+
+    }
 }
+
+
 
 @Composable
 fun WearApp(greetingName: String) {
