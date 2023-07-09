@@ -7,6 +7,7 @@
 package fr.alexis.getphonebatterystatus.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -17,20 +18,26 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import fr.alexis.getphonebatterystatus.R
 import fr.alexis.getphonebatterystatus.presentation.theme.GetPhoneBatteryStatusTheme
+import fr.alexis.getphonebatterystatus.presentation.theme.OnBatteryDataReceive
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(),OnBatteryDataReceive {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WearApp("Damien la con dta mère")
         }
+    }
+    override fun onBatteryDataReceive(level: Int, state: Int) {
+        Log.i("Montre","Levell $level State $state")
     }
 }
 
@@ -47,18 +54,30 @@ fun WearApp(greetingName: String) {
                 .background(MaterialTheme.colors.background),
             verticalArrangement = Arrangement.Center
         ) {
-            Greeting(greetingName = greetingName)
+batteryLevel(greetingName = 5)
+            batteryState(greetingName = 2)
+        }
         }
     }
-}
 
 @Composable
-fun Greeting(greetingName: String) {
+fun batteryLevel(greetingName: Int) {
     Text(
         modifier = Modifier.fillMaxWidth(),
         textAlign = TextAlign.Center,
         color = MaterialTheme.colors.primary,
-        text = stringResource(R.string.hello_world, greetingName)
+        text = "Battery Level: $greetingName",
+        style = TextStyle(fontSize = 20.sp)
+    )
+}
+@Composable
+fun batteryState(greetingName: Int) {
+    Text(
+        modifier = Modifier.fillMaxWidth(),
+        textAlign = TextAlign.Center,
+        color = MaterialTheme.colors.primary,
+        text = "Battery State: $greetingName",
+        style = TextStyle(fontSize = 20.sp)
     )
 }
 
