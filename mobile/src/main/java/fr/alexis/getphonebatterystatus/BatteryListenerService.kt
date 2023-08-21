@@ -36,7 +36,7 @@ class BatteryListenerService : WearableListenerService(), BatteryUpdateInterface
         val dataClient = Wearable.getDataClient(applicationContext)
         val putDataTask = dataClient.putDataItem(dataItem)
         putDataTask.addOnSuccessListener {
-            Log.i("Succès", "Envoye des données batterie = $batteryLevel ainsi qu'elle charge = $batteryCharging ")
+            Log.i("Succès", "Envoie des données batterie = $batteryLevel ainsi qu'elle charge = $batteryCharging ")
         }
         putDataTask.addOnFailureListener { exception ->
             Log.i("Echec","Erreur dans l'envoie des donnéées $exception")

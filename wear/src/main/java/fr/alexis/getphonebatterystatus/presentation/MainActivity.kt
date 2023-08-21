@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
+import androidx.work.WorkManager
 import fr.alexis.getphonebatterystatus.presentation.theme.GetPhoneBatteryStatusTheme
 
 class MainActivity : ComponentActivity(), OnBatteryDataReceive {
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity(), OnBatteryDataReceive {
         super.onResume()
         val intent = Intent(this, PhoneBatteryStateListener::class.java)
         startService(intent)
+        println("service start")
     }
 }
 
