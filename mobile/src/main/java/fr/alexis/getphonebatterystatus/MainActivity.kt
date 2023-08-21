@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity(){
     override fun onStart() {
         super.onStart()
         val intent = Intent(this, BatteryListenerService::class.java)
-        startService(intent)
+        startForegroundService(intent)
     }
 }
 

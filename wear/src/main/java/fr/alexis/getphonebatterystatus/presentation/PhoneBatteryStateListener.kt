@@ -13,6 +13,7 @@ class PhoneBatteryStateListener : WearableListenerService() {
                 val dataMap = DataMapItem.fromDataItem(event.dataItem).dataMap
                 val batteryLevel = dataMap.getInt("battery_level", 0)
                 val batteryCharging = dataMap.getInt("battery_charging", -1)
+                println("$batteryLevel $batteryCharging")
             }
         }
     }
