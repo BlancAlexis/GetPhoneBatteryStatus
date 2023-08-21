@@ -12,5 +12,6 @@ class MainActivity : AppCompatActivity(){
         val intent = Intent(this, BatteryListenerService::class.java)
         startService(intent)
     }
+
 }
 

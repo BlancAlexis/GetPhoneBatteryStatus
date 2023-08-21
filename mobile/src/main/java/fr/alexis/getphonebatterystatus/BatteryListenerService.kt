@@ -9,10 +9,11 @@ import fr.alexis.getphonebatterystatus.BatteryStatus.batteryLevel
 
 class BatteryListenerService : WearableListenerService(), BatteryUpdateInterface {
 
+    private val batteryReceiver= BatteryReceiver(this)
+
 
     override fun onCreate() {
         super.onCreate()
-        val batteryReceiver = BatteryReceiver(this)
         val batteryFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         registerReceiver(batteryReceiver, batteryFilter)
         println("register ok")
@@ -22,6 +23,11 @@ class BatteryListenerService : WearableListenerService(), BatteryUpdateInterface
         println("yo2")
         println("$batteryLevel $batteryCharging")
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+            unregisterReceiver(batteryReceiver)
     }
 
     private fun sendBatteryDataToWear() {
@@ -42,4 +48,5 @@ class BatteryListenerService : WearableListenerService(), BatteryUpdateInterface
             Log.i("Echec","Erreur dans l'envoie des donnéées $exception")
         }
     }
+
 }
